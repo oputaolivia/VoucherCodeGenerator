@@ -4,7 +4,7 @@ const voucherSchema = new mongoose.Schema({
     voucherCode: {
       type: mongoose.Schema.Types.Mixed,
     },
-    voucherStatus: {
+    isUsed: {
       type: Boolean,
       default: false,
     }

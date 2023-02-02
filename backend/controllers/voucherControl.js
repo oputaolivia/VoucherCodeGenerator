@@ -4,10 +4,10 @@ const getVoucher = async (req, res) => {
     try {
       const voucher = await Voucher.findOneAndReplace(
         {
-            voucherStatus: false
+          isUsed: false
         },
         {
-            voucherStatus: true
+          isUsed: true
         }
        );
   
