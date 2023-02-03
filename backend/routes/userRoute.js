@@ -9,7 +9,7 @@ const { submit } = require("../utils/auth");
 
 userRoute.get("/getUser/:id", getUser);
 userRoute.get("/getUsers", getUsers);
-userRoute.post("/submit", submit);
+userRoute.post("/", submit);
 
 module.exports = {
     userRoute,

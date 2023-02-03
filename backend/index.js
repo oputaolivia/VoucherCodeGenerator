@@ -13,7 +13,7 @@ app.use(express.json());
 
 const { userRoute } = require("./routes/userRoute.js");
 
-app.use("/users", userRoute);
+app.use("/", userRoute);
 
 app.listen(PORT, () => {
   console.log(

@@ -2,7 +2,7 @@ const { getVoucher } = require("../controllers/voucherControl");
 const User = require("../models/userModel");
 
 const submit = async (req, res) => {
-  let {fullName, email, department} = req.body;
+  const{fullName, email, department} = req.body;
   const existingUser = await User.findOne({ email: email });
     if (existingUser)
       return res.status(400).json({
