@@ -10,7 +10,6 @@ const getVoucher = async (req, res) => {
           isUsed: true
         }
        );
-  
       res.status(200).send({
         data: {
             voucher: voucher.voucherCode
