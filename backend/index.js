@@ -13,10 +13,8 @@ app.use(express.json());
 
 const { userRoute } = require("./routes/userRoute.js");
 
-app.use("/", userRoute);
+app.use("/users", userRoute);
 
 app.listen(PORT, () => {
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
-  );
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
