@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://<username>:<password>@cluster.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb://localhost:27017";
 
 let obj = {
   name: "",
@@ -10,7 +10,7 @@ let obj = {
 };
 
 let data = [];
-let voucher = ["abc","def","dkd"];
+let voucher = ["abc","def","dkd", "hdu"];
 
 function seedData() {
   for(let i = 0; i < voucher.length; i++) {
@@ -25,8 +25,8 @@ console.log(data);
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
-  const db = client.db("test");
-  const collection = db.collection("obj");
+  const db = client.db("AzureVouchers");
+  const collection = db.collection("users");
   collection.insertMany(data, function(err, res) {
     console.log("Data inserted successfully!");
     client.close();
