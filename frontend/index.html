@@ -1,190 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GETTING STARTED WITH AZURE FUNCTIONS</title>
-    <style>
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      html {
-        font-size: 65%;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GETTING STARTED WITH AZURE FUNCTIONS</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      body {
-        display: grid;
-        place-content: center;
-        background: linear-gradient(45deg, #8ca6db, #b993d6);
-        height: 100%;
-        max-height: 100rem;
-        margin: 5rem;
-      }
+    html {
+      font-size: 65%;
+    }
 
-      .main {
-        display: grid;
-        place-items: center;
-        gap: 1rem;
-        width: 47rem;
-        max-width: 100%;
-        height: 65rem;
-        background: linear-gradient(45deg, #243b69, #330e50);
-        border-radius: 2rem;
-        padding: 2rem;
-      }
+    body {
+      display: grid;
+      place-content: center;
+      background: linear-gradient(45deg, #8ca6db, #b993d6);
+      height: 100%;
+      max-height: 100rem;
+      margin: 5rem;
+    }
 
-      .img {
-        width: 20rem;
-        height: 20rem;
-        background-color: #fff;
-        border-radius: 100%;
-      }
+    .main {
+      display: grid;
+      place-items: center;
+      gap: 1rem;
+      width: 47rem;
+      max-width: 100%;
+      height: 65rem;
+      background: linear-gradient(45deg, #243b69, #330e50);
+      border-radius: 2rem;
+      padding: 2rem;
+    }
 
-      img {
-        width: 100%;
-      }
+    .img {
+      width: 20rem;
+      height: 20rem;
+      background-color: #fff;
+      border-radius: 100%;
+    }
 
-      form {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        gap: 2rem;
-        padding: 2rem;
-      }
+    img {
+      width: 100%;
+    }
 
-      .form__group {
-        max-width: 100%;
-        padding: 1.5rem;
-        display: grid;
-      }
+    form {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      gap: 2rem;
+      padding: 2rem;
+    }
 
-      input {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid #fff;
-        font-size: 1.5rem;
-        outline: none;
-      }
+    .form__group {
+      max-width: 100%;
+      padding: 1.5rem;
+      display: grid;
+    }
 
-      input::placeholder {
-        font-size: 1.5rem;
-        font-family: sans-serif;
-      }
+    input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      font-size: 1.5rem;
+      outline: none;
+      color: #fff;
+    }
 
-      .texts,
-      h2 {
-        font-size: 1.5rem;
-        color: #fff;
-        font-family: sans-serif;
-        justify-self: center;
-        align-self: center;
-      }
+    input::placeholder {
+      font-size: 1.5rem;
+      font-family: sans-serif;
+    }
 
-      .form__Button {
-        display: grid;
-        width: 50%;
-        justify-self: center;
-        align-self: center;
-        height: 100%;
-      }
+    .texts,
+    h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      font-family: sans-serif;
+      justify-self: center;
+      align-self: center;
+    }
 
-      button {
-        padding: 1rem;
-        font-size: 1.5rem;
-        border-radius: 1rem;
-        border: none;
-        transition: all 2s;
-      }
+    .form__Button {
+      display: grid;
+      width: 50%;
+      justify-self: center;
+      align-self: center;
+      height: 100%;
+    }
 
-      button:active,
-      button:hover {
-        transform: translateY(0.8rem);
-        background: linear-gradient();
-      }
+    button {
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 1rem;
+      border: none;
+      transition: all 2s;
+    }
 
-      button:disabled {
-        background-color: rgba(238, 238, 238, 0.793);
-        color: #000;
-      }
-    </style>
-  </head>
+    button:active,
+    button:hover {
+      transform: translateY(0.8rem);
+      background: linear-gradient();
+    }
 
-  <body>
-    <div class="main">
-      <div class="img">
-        <img src="./img/msstudents.png" alt="" />
-      </div>
-      <div class="texts">
-        <h2>Fill in your details to unlock your Azure Voucher</h2>
-      </div>
-      <form action="">
-        <div class="form__group">
-          <input type="text" id="name" placeholder="Full Name" />
-        </div>
-        <div class="form__group">
-          <input type="email" id="email" placeholder="Email" required />
-        </div>
-        <div class="form__group">
-          <input type="text" id="gender" placeholder="Gender" required />
-        </div>
-        <div class="form__group">
-          <input type="text" id="texts" placeholder="Department" />
-        </div>
-        <div class="form__Button">
-          <button type="submit">SUBMIT</button>
-        </div>
-      </form>
+    button:disabled {
+      background-color: rgba(238, 238, 238, 0.793);
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="img">
+      <img src="./img/msstudents.png" alt="" />
     </div>
-  </body>
-  <script>
-    const url = "https://localhost:3000/"
-    const datas = {
-  name: document.getElementById("name"),
-  email: document.getElementById("email"),
-  gender: document.getElementById("gender"),
-  department: document.getElementById("texts"),
-  form: document.querySelector("form"),
-  button: document.querySelector("button"),
-};
+    <div class="texts">
+      <h2>Fill in your details to unlock your Azure Voucher</h2>
+    </div>
+    <form action="">
+      <div class="form__group">
+        <input type="text" id="name" placeholder="Full Name" />
+      </div>
+      <div class="form__group">
+        <input type="email" id="email" placeholder="Email" required />
+      </div>
+      <div class="form__group">
+        <input type="text" id="gender" placeholder="Gender" required />
+      </div>
+      <div class="form__group">
+        <input type="text" id="texts" placeholder="Department" />
+      </div>
+      <div class="form__Button">
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+  const url = "https://localhost:3000/"
+  const datas = {
+    name: document.getElementById("name"),
+    email: document.getElementById("email"),
+    gender: document.getElementById("gender"),
+    department: document.getElementById("texts"),
+    form: document.querySelector("form"),
+    button: document.querySelector("button"),
+  };
 
-datas.form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let { name, email,gender, department } = datas;
-  if (name.value === "" || email.value === "" || gender.value === ""|| department.value === "") {
-    datas.button.textContent = "Fill the Form Completely";
-    return;
-  } else {
-    let inputs = {
-      fullName: name.value,
-      email: email.value,
-      gender: gender.value,
-      department: department.value,
-    };
-    senData(url, inputs);
-    name.value = email.value = gender.value = department.value = "";
-  }
-});
-
-const senData = async (url, inputs) => {
-  const response = await fetch(url, {
-    method: "POST",
-    body: JSON.stringify(inputs),
+  datas.form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let { name, email, gender, department } = datas;
+    if (name.value === "" || email.value === "" || gender.value === "" || department.value === "") {
+      datas.button.textContent = "Fill the Form Completely";
+      return;
+    } else {
+      let inputs = {
+        fullName: name.value,
+        email: email.value,
+        gender: gender.value,
+        department: department.value,
+      };
+      senData(url, inputs);
+      name.value = email.value = gender.value = department.value = "";
+    }
   });
-  const data = response.status;
-  if (data === 200) {
-    datas.button.textContent = "SENT";
-    datas.button.disabled = true;
-  } else {
-    datas.button.textContent = "Try again";
-    datas.button.disabled = false;
-  }
-};
 
-  </script>
+  const senData = async (url, inputs) => {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(inputs),
+    });
+    const data = response.status;
+    if (data === 200) {
+      datas.button.textContent = "SENT";
+      datas.button.disabled = true;
+    } else {
+      datas.button.textContent = "Try again";
+      datas.button.disabled = false;
+    }
+  };
+
+</script>
+
 </html>
