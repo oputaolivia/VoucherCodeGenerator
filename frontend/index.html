@@ -118,7 +118,7 @@
 </head>
 
 <body>
-  <div class="main">
+  <div class="main" id="main">
     <div class="img">
       <img src="./img/msstudents.png" alt="" />
     </div>
@@ -145,7 +145,6 @@
   </div>
 </body>
 <script>
-  const url = "https://localhost:3000/"
   const datas = {
     name: document.getElementById("name"),
     email: document.getElementById("email"),
@@ -163,25 +162,32 @@
       return;
     } else {
       let inputs = {
-        fullName: name.value,
+       name: name.value,
         email: email.value,
         gender: gender.value,
         department: department.value,
       };
-      senData(url, inputs);
+      senData("https://vouchercodegenerator.azurewebsites.net/api/voucherGenerator?code=Vf9bFkukMQ8JzVvGRRBI4gqhQESpOxH9Y9_maqjGDX8QAzFuSOVhhg==", inputs);
       name.value = email.value = gender.value = department.value = "";
     }
   });
 
   const senData = async (url, inputs) => {
     const response = await fetch(url, {
+      headers: {
+    'Content-Type': 'application/json'},
       method: "POST",
       body: JSON.stringify(inputs),
     });
     const data = response.status;
     if (data === 200) {
-      datas.button.textContent = "SENT";
-      datas.button.disabled = true;
+      let container = document.getElementById("main");
+      container.innerHTML = `<h1 style="color: white; ">
+        Your Details has been submitted <br>
+        Check your mail to activate your voucher ✔
+        </h1>`
+      // datas.button.textContent = "SENT";
+      // datas.button.disabled = true;
     } else {
       datas.button.textContent = "Try again";
       datas.button.disabled = false;

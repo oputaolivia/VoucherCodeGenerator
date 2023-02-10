@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb+srv://root:root@cluster0.hufkb.mongodb.net/?retryWrites=true&w=majority";
 
 let obj = {
   name: "",
@@ -10,7 +10,7 @@ let obj = {
 };
 
 let data = [];
-let voucher = ["abc","def","dkd", "hdu"];
+let voucher = ["abc","def","dkd", "hdu", "sdsf", "asd", "fgrt"];
 
 function seedData() {
   for(let i = 0; i < voucher.length; i++) {

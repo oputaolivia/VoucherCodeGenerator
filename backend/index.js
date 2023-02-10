@@ -1,10 +1,12 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const nodemailer = require("nodemailer");
-const uri = "mongodb://localhost:27017";
+ require("dotenv").config();
+const uri = process.env.MONGODB_URI;
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 const corsOptions = {
@@ -41,27 +43,35 @@ app.post("/submit-details", function (req, res) {
         );
 
         // send email to user containing their voucher code
-        let transporter = nodemailer.createTransport({
-          host: "smtp.gmail.com",
-          port: 587,
-          secure: false,
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
           auth: {
-            user: "oputa.olivia@studentambassadors.com",
-            pass: "yourpassword",
-          },
+            user: process.env.EMAIL,
+            pass: process.env.MAIL_PASS
+          }
         });
 
-        let mailOptions = {
-          from: 'oputa.olivia@studentambassadors.com',
-          to: req.body.email,
+       let mailOptions = {
+          from: process.env.EMAIL,
+          to:req.body.email ,
           subject: 'Your Voucher Code',
           text: `
             Hello ${req.body.name},
+            It was nice having you at todays session,
+
+            For attending our event you just 
+            unlocked an Azure Voucher.
             Your Azure Voucher Code is
-           ${result.voucherCode}`
+            ${result.voucherCode}
+
+            Use the link bellow to activate your voucher:
+            https://signup.azure.com/studentverification?offerType=1
+           
+            Best Regard,
+            MLSA FUTO.`
         };
 
-        transporter.sendMail(mailOptions, function(error, info){
+       transporter.sendMail(mailOptions, function(error, info){
           if (error) {
             console.log(error);
           } else {
